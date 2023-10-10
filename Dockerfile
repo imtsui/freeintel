@@ -5,16 +5,15 @@ RUN DEBIAN_FRONTEND=noninteractive apt install wine qemu-kvm *zenhei* xz-utils d
 RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.2.0.tar.gz
 RUN tar -xvf v1.2.0.tar.gz
 RUN mkdir  $HOME/.vnc
-RUN echo 'Sophia' | vncpasswd -f > $HOME/.vnc/passwd
+RUN echo 'wakawaka' | vncpasswd -f > $HOME/.vnc/passwd
 RUN echo '/bin/env  MOZ_FAKE_NO_SANDBOX=1  dbus-launch xfce4-session'  > $HOME/.vnc/xstartup
 RUN chmod 600 $HOME/.vnc/passwd
 RUN chmod 755 $HOME/.vnc/xstartup
-RUN echo 'whoami ' >>/Sophia.sh
-RUN echo 'cd ' >>/Sophia.sh
-RUN echo "su -l -c 'vncserver :2000 -geometry 1360x768' "  >>/Sophia.sh
-RUN echo 'cd /noVNC-1.2.0' >>/Sophia.sh
-RUN echo './utils/launch.sh  --vnc localhost:7900 --listen 8900 ' >>/Sophia.sh
-RUN chmod 755 /Sophia.sh
+RUN echo 'whoami ' >>/wakawaka.sh
+RUN echo 'cd ' >>/wakawaka.sh
+RUN echo "su -l -c 'vncserver :2000 -geometry 1360x768' "  >>/wakawaka.sh
+RUN echo 'cd /noVNC-1.2.0' >>/wakawaka.sh
+RUN echo './utils/launch.sh  --vnc localhost:7900 --listen 8900 ' >>/wakawaka.sh
+RUN chmod 755 /wakawaka.sh
 EXPOSE 8900
-CMD  /Sophia.sh
-
+CMD  /wakawaka.sh
